@@ -38,5 +38,16 @@ public class UserDao {
 	{
 		return repository.findByName(name);
 	}
+	
+	public List<User> findByNameOrderByIdDesc(String name)
+	{
+		return repository.findByNameOrderByIdDesc(name);
+	}
+	
+	
+	public User getUserByEmaiUser(String email)
+	{
+		return repository.getUserByEmaiUser(email);
+	}
 
 }

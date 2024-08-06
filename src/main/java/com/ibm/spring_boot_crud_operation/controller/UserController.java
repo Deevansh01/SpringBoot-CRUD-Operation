@@ -3,6 +3,7 @@ package com.ibm.spring_boot_crud_operation.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,7 +41,6 @@ public class UserController {
 	@GetMapping(value="/findById/{id}")
 	public User findUserByIdController(@PathVariable int id)
 	{
-		System.out.println(dao);
 		return dao.findUserByIdDao(id);
 	}
 	
@@ -50,8 +50,20 @@ public class UserController {
 	}
 	
 	@GetMapping(value="findUserByName/{name}")
-	public List<User> findByNameController(String name){
+	public List<User> findByNameController( @PathVariable String name){
 		return dao.findByNameDao(name);
+	}
+	
+	@GetMapping(value="findByIdDesc/{name}")
+	public List<User> findByNameOrderByIdDesc(@PathVariable String name)
+	{
+		return dao.findByNameOrderByIdDesc(name);
+	}
+	
+	@GetMapping(value="findByEmail/{email}")
+	public User getUserByEmaiUser(@PathVariable String email)
+	{
+		return dao.getUserByEmaiUser(email);
 	}
 	
 	
