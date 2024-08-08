@@ -1,5 +1,6 @@
 package com.ibm.spring_boot_crud_operation.dao;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -49,5 +50,25 @@ public class UserDao {
 	{
 		return repository.getUserByEmaiUser(email);
 	}
+	
+	public boolean deleteUserByDob(LocalDate date) {
+		try {
+			repository.deleteUserByDob(date);
+			return true;
+		} catch (Exception e) {
+				e.printStackTrace();
+				return false;
+		}
+	}
+	
+	public boolean updateUserNameByDob(String name,LocalDate dob) {
+        try {
+        	repository.updateUserNameByDob(name,dob);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+        
+    }
 
 }
